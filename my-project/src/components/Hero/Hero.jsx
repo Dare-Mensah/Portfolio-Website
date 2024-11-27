@@ -1,4 +1,9 @@
 import React from 'react'
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import Heroimg from "../../assets/Profilepic.jpg"
 import linkinimg from "../../assets/linkedinlogo.png"
 import githubimg from "../../assets/github.jpg"
@@ -30,7 +35,7 @@ const Hero = () => {
         {
             company: 'Amazon',
             job_title: 'Program Manager',
-            description: ['Enhanced the performance of the Amazon locker network, achieving an estimated 10% increase in efficiency and estimated revenue savings of over $100,000 annually.'],
+            description: ['Enhanced the performance of the Amazon locker network, achieving an estimated 10% increase in efficiency and estimated revenue savings of over $100,000 annually.', 'Refined a Machine Learning Model, providing insights in regional differences in internal metrics, and package volume performance, with findings presented to senior management to further push projects.'],
             logo: amazonLogo,
             duration: 'Jan 2024 - Aug 2024'
         },
@@ -38,7 +43,7 @@ const Hero = () => {
         {
             company: 'Microsoft',
             job_title: 'Technology Internship',
-            description: ['Engineered a feature-rich app demo using React Native Expo, which boosted prospective leadership interest by 18%.'],
+            description: ['Engineered a feature-rich app demo using React Native Expo, which boosted prospective leadership interest by 18%.', 'Maintained extensive knowledge base in AI and software engineering by regularly attending workshops, webinars, and industry conferences.'],
             logo: microsoftLogo,
             duration: 'Jul 2023 - Aug 2023'
         },
@@ -46,7 +51,7 @@ const Hero = () => {
         {
             company: 'Grant Thornton',
             job_title: 'Technology Risk Consultant Internship',
-            description: ['Enhanced client communication by providing clear and concise code review feedback, leading to a 10% increase in client satisfaction with our services.'],
+            description: ['Enhanced client communication by providing clear and concise code review feedback, leading to a 10% increase in client satisfaction with our services.', 'Collaborated with cross-functional teams to identify and resolve control weaknesses, working closely with various departments to conduct thorough assessments and implement effective solutions. '],
             logo: GTLogo,
             duration: 'Jun 2023 - Jul 2023'
         },
@@ -54,7 +59,7 @@ const Hero = () => {
         {
             company: 'Queen Mary University London',
             job_title: 'Teaching Assistant',
-            description: ['Developed and implemented engaging lesson plans that improved student performance in coursework 10%.'],
+            description: ['Developed and implemented engaging lesson plans that improved student performance in coursework 10%.', 'Used technology to supplement traditional teaching methods, resulting in a 5% increase in student engagement.'],
             logo: QueenMaryUniversityLogo,
             duration: 'Oct 2023 - Dec 2023'
         },
@@ -62,7 +67,7 @@ const Hero = () => {
         {
             company: 'Queen Mary University London',
             job_title: 'Student Ambassador',
-            description: ['Organised a campus tour program that provided prospective students with a comprehensive overview of the university and increased prospective student attendance by 6%.'],
+            description: ['Organised a campus tour program that provided prospective students with a comprehensive overview of the university and increased prospective student attendance by 6%.', 'Represented the university at various outreach events and recruitment drives, resulting in a 4% increase in applications from prospective students.'],
             logo: QueenMaryUniversityLogo,
             duration: 'Feb 2023 - Aug 2024'
         },
@@ -81,18 +86,6 @@ const Hero = () => {
             github_link: ''
         },
 
-        {
-            Title: 'FDM WellbeingApp',
-            image: FDMWellbeingHomepageOne,
-            github_link: ''
-        },
-
-        {
-            Title: 'FDM WellbeingApp',
-            image: FDMWellbeingHomepageOne,
-            github_link: ''
-        },
-
     ]
 
 
@@ -102,7 +95,7 @@ const Hero = () => {
     <div className='justify-items-center' >
         <div className='container grid md:grid-cols-2 gap-11 mx-10 min-h-[500px] bg-white w-full'>
             <div className='flex flex-col justify-center text-center md:text-left pt-24 md:p-0 pb-5 bg-white w-full'>
-                <h4 className='text-xl font-light text-stone-900 mt-10' >Hi, I'm</h4>
+                <h4 className='text-xl font-light text-stone-900 mt-48' >Hi, I'm</h4>
                 <h1 className='text-6xl font-bold'> Dare Mensah </h1>
                 <h1 className='text-6xl font-bold text-stone-900'>Product Manager/ Software Developer</h1>
                 <p className='mt-10'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit enim inventore
@@ -133,7 +126,7 @@ const Hero = () => {
                     </div>
             </div>    
             </div>
-            <div className='mt-20 mx-7'>
+            <div className='mt-48 mx-7'>
                 <img className='rounded-md' src={Heroimg} alt= ""/>
             </div>
         </div>
@@ -149,7 +142,7 @@ const Hero = () => {
                 <div className="border-2 rounded-md p-3 w-96 h-70">
                 <p className="text-center font-bold mb-3">Experience</p>
                 <p className="text-center">1+ years</p>
-                <p className="text-center">Work Experience</p>
+                <p className="text-center mt-2">Software Development & Product Management</p>
             </div>
             <div className="border-2 rounded-md p-3 w-96 h-70">
                 <p className="text-center font-bold mb-3">Education</p>
@@ -178,7 +171,7 @@ const Hero = () => {
     <section id="work_experience" className="my-60">
         <p className="text-stone-900 text-center">Explore my</p>
         <h1 className="text-6xl font-bold text-center mb-10">Work Experience</h1>
-        <div className="container flex flex-col items-center justify-center gap-11 mx-auto  bg-white w-full">
+        <div className="container flex flex-col items-center justify-center gap-11 mx-auto bg-white w-full">
             <div className="flex flex-wrap justify-center gap-3">
             {Work_Experiences.map((Work_Experiences, index) => (
                 <div className="border-2 rounded-3xl p-3 w-96 h-70">
@@ -192,7 +185,7 @@ const Hero = () => {
                     {Work_Experiences.description.map((text, textIndex) => (
                         <div key={textIndex}>
                             <ol className=' list-disc pl-5'>
-                                <li className='mt-4'>{Work_Experiences.description}</li>
+                                <li className='mt-4'>{text}</li>
                             </ol>
                         </div>
                     ))}
@@ -216,9 +209,9 @@ const Hero = () => {
         <p className="text-stone-900 text-center">Browse My Recent</p>
         <h1 className="text-6xl font-bold text-center mb-10">Projects</h1>
         <div className="container flex flex-col items-center justify-center gap-11 mx-auto  bg-white w-full">
-        <Carousel swipeable={true} showIndicators={true} showThumbs={true} showArrows={true}>
+        <Carousel swipeable={true} showIndicators={true} showThumbs={false} showArrows={true}>
         {Projects.map((Projects, index) => (
-            <div className="flex flex-wrap justify-center gap-3"> 
+            <div key ={index} className="flex flex-wrap justify-center gap-3"> 
                 <div className="border-2 rounded-3xl p-3 w-96 h-70 justify-items-center">
                     <img className='rounded-3xl items-center' src= {Projects.image} height={200} width={200}/>
                     <div>
@@ -226,6 +219,7 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
+            
         ))}
         </Carousel>
         </div>
