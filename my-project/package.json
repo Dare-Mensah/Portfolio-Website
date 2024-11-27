@@ -2,12 +2,14 @@
   "name": "my-project",
   "private": true,
   "version": "0.0.0",
+  "homepage": "Dare-Mensah.github.io",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy" : "npm run build && gh-pages -d"
   },
   "dependencies": {
     "@react-native-vector-icons/ionicons": "^7.4.0-alpha.36",
