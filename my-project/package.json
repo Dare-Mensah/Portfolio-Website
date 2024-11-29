@@ -3,12 +3,15 @@
   "name": "my-project",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://dare-mensah.github.io/Portfolio-Website/",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@react-native-vector-icons/ionicons": "^7.4.0-alpha.36",
